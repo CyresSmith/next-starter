@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0">
+<defs>
+<symbol viewBox="0 0 800 800" id="flashlight">
+  <path d="M433.33,333.33h233.33l-300,433.33v-300h-233.33L433.33,33.33v300Z"></path>
+</symbol>
+</defs>
+</svg>
