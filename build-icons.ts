@@ -62,10 +62,10 @@ const buildIcons = async () => {
         names: files.map(file => JSON.stringify(file.replace(/\.svg$/, ''))),
     });
 
-    await writeIfChanged(path.join(namesDir, 'icons.ts'), typesContent);
+    await writeIfChanged(path.join(namesDir, 'icon.type.ts'), typesContent);
 
     function generateTypes({ names }: { names: string[] }) {
-        return [`export type IconName =`, ...names.map(name => `\t| ${name}`), ''].join('\n');
+        return [`export type IconNameType =`, ...names.map(name => `\t| ${name}`), ''].join('\n');
     }
 
     async function writeIfChanged(filepath: string, newContent: string) {
