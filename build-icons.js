@@ -1,7 +1,7 @@
-import { glob } from 'glob';
-import { parse } from 'node-html-parser';
-import { promises as fs } from 'node:fs';
-import * as path from 'node:path';
+const { glob } = require('glob');
+const { parse } = require('node-html-parser');
+const { promises: fs } = require('fs');
+const path = require('path');
 
 const cwd = process.cwd();
 const inputDir = path.join(cwd, 'svg');
@@ -31,7 +31,7 @@ const buildIcons = async () => {
 
     await writeIfChanged(path.join(outputDir, 'sprite.svg'), spritesheetContent);
 
-    async function generateSvgSprite({ files, inputDir }: { files: string[]; inputDir: string }) {
+    async function generateSvgSprite({ files, inputDir }) {
         const symbols = await Promise.all(
             files.map(async file => {
                 const input = await fs.readFile(path.join(inputDir, file), 'utf8');
@@ -64,11 +64,11 @@ const buildIcons = async () => {
 
     await writeIfChanged(path.join(namesDir, 'icon.type.ts'), typesContent);
 
-    function generateTypes({ names }: { names: string[] }) {
+    function generateTypes({ names }) {
         return [`export type IconNameType =`, ...names.map(name => `\t| ${name}`), ''].join('\n');
     }
 
-    async function writeIfChanged(filepath: string, newContent: string) {
+    async function writeIfChanged(filepath, newContent) {
         const currentContent = await fs.readFile(filepath, 'utf8');
         if (currentContent !== newContent) {
             return fs.writeFile(filepath, newContent, 'utf8');

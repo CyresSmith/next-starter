@@ -1,1 +1,2 @@
-export type IconNameType = 'flashlight';
+export type IconNameType =
+	| "flashlight"
