@@ -1,6 +1,18 @@
 import type { Metadata } from 'next';
+import { Comfortaa, Kiwi_Maru } from 'next/font/google';
 
 import './globals.css';
+
+const sans = Comfortaa({
+    subsets: ['cyrillic-ext', 'cyrillic', 'latin'],
+    variable: '--sans',
+});
+
+const heading = Kiwi_Maru({
+    subsets: ['cyrillic', 'latin'],
+    variable: '--heading',
+    weight: ['300', '400', '500'],
+});
 
 export const metadata: Metadata = {
     title: 'New Next App',
@@ -13,8 +25,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={`antialiased`}>{children}</body>
+        <html lang="en" className={`${sans.variable} ${heading.variable} antialiased`}>
+            <body>{children}</body>
         </html>
     );
 }
