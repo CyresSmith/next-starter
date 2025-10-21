@@ -1,3 +1,3 @@
 export default function Home() {
-    return <main>New next app</main>;
+    return <main>Poruch</main>;
 }
