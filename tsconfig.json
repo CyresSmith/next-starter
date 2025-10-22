@@ -39,8 +39,8 @@
       "@assets/*": [
         "./assets/*"
       ],
-      "@ui/*": [
-        "./components/ui/*"
+      "@ui": [
+        "./components/ui"
       ],
       "@components/*": [
         "./components/*"
